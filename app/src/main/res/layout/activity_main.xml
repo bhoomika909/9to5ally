@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/qw"
+    android:gravity="center"
+    android:orientation="vertical"
+    tools:context=".MainActivity">
+
+    <ImageView
+        android:layout_width="298dp"
+        android:id="@+id/image"
+        android:layout_height="190dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="164dp"
+        android:layout_marginEnd="8dp"
+        app:flow_horizontalAlign="center"
+        app:flow_verticalAlign="center"
+        android:src="@drawable/final_logo"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.494"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+
+    <Button
+        android:id="@+id/submit"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/image"
+
+        android:layout_centerInParent="true"
+        android:layout_marginTop="50dp"
+        android:layout_marginLeft="-250dp"
+        app:layout_constraintLeft_toRightOf="@+id/image"
+        android:layoutDirection="inherit"
+
+        android:text="Let's Go Ahead!!"
+        app:flow_horizontalAlign="center"
+        app:flow_verticalAlign="center"
+
+
+        app:layout_constraintTop_toBottomOf="@+id/image"
+        tools:ignore="MissingConstraints"
+        tools:layout_editor_absoluteX="122dp" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
