@@ -1,5 +1,6 @@
 package com.example.a001;
 
+
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.annotation.SuppressLint;
@@ -13,7 +14,7 @@ import android.widget.TextView;
 import java.util.Locale;
 
 public class Activity4 extends AppCompatActivity {
-
+    private static final String TAG = "MyActivity";
     TextView textView;
 
     Button button;
@@ -47,8 +48,7 @@ public class Activity4 extends AppCompatActivity {
         btnn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-
-
+                System.out.println("Ayush Output check activity4_0000");
                 Intent intent = new Intent(Activity4.this, Activity5.class);
                 startActivity(intent);
             }

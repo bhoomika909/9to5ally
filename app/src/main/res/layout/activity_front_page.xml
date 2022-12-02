@@ -4,7 +4,7 @@ xmlns:app="http://schemas.android.com/apk/res-auto"
 xmlns:tools="http://schemas.android.com/tools"
 android:layout_width="match_parent"
 android:layout_height="match_parent"
-android:background="@drawable/background"
+android:background="@drawable/hraccount"
 tools:context=".MainActivity">
 
 <!--    <TextView-->
@@ -13,71 +13,55 @@ tools:context=".MainActivity">
 <!--        android:text="Sign-in" />-->
 
 
-<TextView
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:id="@+id/signin"
-    android:text="Sign in"
-    android:textColor="@color/white"
-    android:textSize="35dp"
-    android:textStyle="bold"
-    android:layout_margin="50dp"
-    android:gravity="center"/>
+    <TextView
+        android:id="@+id/signin"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="50dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginEnd="50dp"
+        android:layout_marginBottom="50dp"
+        android:gravity="center"
+        android:text="Complain Box"
+        android:textColor="@color/white"
+        android:textSize="35dp"
+        android:textStyle="bold" />
 
-<EditText
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:id="@+id/username"
-    android:layout_below="@id/signin"
-    android:background="#30ffffff"
-    android:hint="Username"
-    android:textColorHint="@color/white"
-    android:textColor="@color/white"
-    android:layout_margin="10dp"
-    android:padding="20dp"
-    android:drawableLeft="@drawable/ic_baseline_person_outline_24"
-    android:drawablePadding="20dp"/>
-<EditText
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:id="@+id/password"
-    android:layout_below="@id/username"
-    android:background="#30ffffff"
-    android:hint="Password"
-    android:textColorHint="@color/white"
-    android:textColor="@color/white"
-    android:layout_margin="10dp"
-    android:padding="20dp"
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/userList"
+        android:layout_width="match_parent"
+        android:layout_height="656dp"
+        android:layout_below="@+id/signin"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginStart="0dp"
+        android:layout_marginTop="-43dp"
+        android:layout_marginEnd="0dp"
+        android:layout_marginBottom="51dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
-    android:drawableLeft="@drawable/ic_baseline_info_24"
-    android:drawablePadding="20dp"/>
-
-<Button
-
-    android:id="@+id/button"
-    android:layout_width="wrap_content"
-    android:layout_height="wrap_content"
-    android:layout_below="@id/password"
-    android:text="LOGIN"
-    android:backgroundTint="@color/design_default_color_secondary"
-    android:layout_centerHorizontal="true"
-    android:layout_margin="20dp"/>
-<TextView
-    android:layout_width="wrap_content"
-    android:layout_height="wrap_content"
-    android:id="@+id/forgotpass"
-    android:layout_below="@+id/button"
-    android:text="Forgot Password?"
-    android:textColor="@color/white"
-    android:layout_centerHorizontal="true"
-    android:layout_margin="20dp"
-    />
+    <Button
+        android:id="@+id/adminlogoutbtn"
+        android:layout_width="106dp"
+        android:layout_height="35dp"
+        android:layout_below="@+id/userList"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginStart="120dp"
+        android:layout_marginTop="-40dp"
+        android:layout_marginEnd="120dp"
+        android:layout_marginBottom="0dp"
+        android:backgroundTint="@color/purple_700"
+        android:text="LogOut"
+        android:textColor="@color/white" />
 
 
-
-
-
-<!--    <Button-->
+    <!--    <Button-->
 <!--        android:id="@+id/button"-->
 <!--        android:layout_width="wrap_content"-->
 <!--        android:layout_height="wrap_content"-->

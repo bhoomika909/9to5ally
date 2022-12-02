@@ -1,4 +1,22 @@
 package com.example.a001;
+
+
+import androidx.annotation.NonNull;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
+
+import android.app.ProgressDialog;
+import android.os.Bundle;
+
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
+
+import java.util.ArrayList;
 import android.content.Intent;
         import android.os.Bundle;
         import android.view.View;
@@ -13,49 +31,81 @@ import android.content.Intent;
 
         import java.io.File;
 
-public class FrontPage extends AppCompatActivity {
-
-    private Button button;
-    Interpreter tflite;
+public class FrontPage extends AppCompatActivity implements SelectListener {
 
 
+    RecyclerView recyclerView;
+    DatabaseReference database;
+    DatabaseReference statusshow;
+    myadaptar myAdapter;
+    ArrayList<item> list;
+    Button adminlogout;
+    ProgressDialog progressDialog;
+    String DesName;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_front_page);
-
-        TextView username = (TextView) findViewById(R.id.username);
-        TextView password = (TextView) findViewById(R.id.password);
-
-
-        button = (Button) findViewById(R.id.button);
-        button.setOnClickListener(new View.OnClickListener() {
+        //setContentView(R.layout.item);
+        recyclerView = findViewById(R.id.userList);
+        database = FirebaseDatabase.getInstance().getReference("Users");
+        recyclerView.setHasFixedSize(true);
+        recyclerView.setLayoutManager(new LinearLayoutManager(this));
+        adminlogout = findViewById(R.id.adminlogoutbtn);
+        progressDialog = new ProgressDialog(this);
+        list = new ArrayList<>();
+        myAdapter = new myadaptar(this,list,this);
+        recyclerView.setAdapter(myAdapter);
+        progressDialog.setMessage("Please wait while Fetching Complaint.......");
+        progressDialog.setTitle("Complaints");
+        progressDialog.setCanceledOnTouchOutside(false);
+        progressDialog.show();
+        database.addValueEventListener(new ValueEventListener() {
             @Override
-            public void onClick(View view) {
-                if (username.getText().toString().equals("admin") && password.getText().toString().equals("admin")) {
-                    //correct
-                    Toast.makeText(FrontPage.this, "LOGIN SUCCESSFUL", Toast.LENGTH_SHORT).show();
-                    openActivity2();
-                } else {
-                    Toast.makeText(FrontPage.this, "LOGIN FAIL!!!", Toast.LENGTH_SHORT).show();
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                progressDialog.dismiss();
+                for (DataSnapshot dataSnapshot : snapshot.getChildren()){
+
+                    item user = dataSnapshot.getValue(item.class);
+                    list.add(user);
+
 
                 }
+                myAdapter.notifyDataSetChanged();
+
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
 
             }
         });
+
+        adminlogout.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                FirebaseAuth.getInstance().signOut();
+                Intent intent = new Intent(FrontPage.this,MainActivity.class);
+                startActivity(intent);
+            }
+        });
+
+
     }
 
     @Override
-    protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
-        super.onActivityResult(requestCode, resultCode, data);
+    public void onItemClicked(item Item) {
 
+        Intent intent = new Intent(FrontPage.this,Activity18.class);
 
-    }
-
-    public void openActivity2() {
-
-        Intent intent = new Intent(FrontPage.this, Activity2.class);
+        String Des = Item.getDescription();
+        System.out.println("Realname finding");
+        String datafind = Item.getRealName();
+        System.out.println("Realname "+datafind);
+        intent.putExtra("message_des", Des);
+        intent.putExtra("message_name", datafind);
         startActivity(intent);
+        Toast.makeText(this,"Opening Details",Toast.LENGTH_SHORT).show();
     }
 }
 

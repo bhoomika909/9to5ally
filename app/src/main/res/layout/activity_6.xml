@@ -7,7 +7,7 @@
 
     tools:context=".Activity6">
     <ImageView
-        android:id="@+id/imageView"
+        android:id="@+id/nav_user_photo"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:scaleType="centerCrop"

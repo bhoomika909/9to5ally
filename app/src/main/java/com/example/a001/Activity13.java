@@ -9,8 +9,15 @@ import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
+
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
 import java.util.Locale;
@@ -35,7 +42,7 @@ public class Activity13 extends AppCompatActivity {
             @Override
             public void onClick(View view) {
 
-
+                performAuth();
                 Intent intent = new Intent(Activity13.this, Activity14.class);
                 startActivity(intent);
             }
@@ -72,13 +79,27 @@ public class Activity13 extends AppCompatActivity {
 
                 outputText.setText(result.get(0));
                 classify(result);
-
-
             }
                 break;
         }
     }
 
     private void classify(ArrayList<String> result) {
+    }
+    public void performAuth()
+    {
+        FirebaseDatabase firebaseDatabase  = FirebaseDatabase.getInstance();
+        DatabaseReference databaseReference = firebaseDatabase.getReference();
+        databaseReference.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                Object value = dataSnapshot.getValue();
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+            }
+        });
+        databaseReference.child("UserAnswer").child("user").child("5").setValue(outputText.getText().toString());
     }
 }

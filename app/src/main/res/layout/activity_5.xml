@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
@@ -8,7 +9,7 @@
     tools:context=".Activity5">
 
     <ImageView
-        android:id="@+id/imageView"
+        android:id="@+id/nav_user_photo"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:scaleType="centerCrop"
@@ -17,6 +18,7 @@
         tools:layout_editor_absoluteY="170dp" />
 
     <ImageView
+        android:id="@+id/pos"
         android:layout_width="wrap_content"
         android:layout_height="300dp"
         android:layout_marginStart="8dp"
@@ -26,15 +28,23 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
+
     <TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:textSize="10sp"
-        android:textAlignment="center"
-        android:layout_marginTop="30dp"
-        android:padding="20dp"
         android:id="@+id/txt_output"
-        />
+        android:layout_width="match_parent"
+        android:layout_height="128dp"
+        android:layout_above="@+id/btn"
+        android:layout_below="@+id/pos"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentEnd="true"
+        android:layout_marginStart="0dp"
+        android:layout_marginTop="87dp"
+        android:layout_marginEnd="0dp"
+        android:layout_marginBottom="4dp"
+        android:padding="20dp"
+        android:textAlignment="center"
+        android:textColor="@color/black"
+        android:textSize="20dp" />
 
     <Button
         android:id="@+id/btn"
@@ -42,7 +52,7 @@
         android:layout_height="60dp"
         android:layout_alignParentBottom="true"
         android:layout_marginTop="20dp"
-        android:layout_marginBottom="172dp"
+        android:layout_marginBottom="128dp"
 
         android:backgroundTint="@color/black"
         android:onClick="btnSpeech"
@@ -52,6 +62,7 @@
         tools:ignore="OnClick"></Button>
 
     <Button
+
         android:id="@+id/next"
         android:layout_width="match_parent"
         android:layout_height="60dp"

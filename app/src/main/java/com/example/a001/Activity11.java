@@ -1,5 +1,6 @@
 package com.example.a001;
 
+import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -11,6 +12,12 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
 import java.util.Locale;
@@ -33,7 +40,7 @@ public class Activity11 extends AppCompatActivity {
             @Override
             public void onClick(View view) {
 
-
+                performAuth();
                 Intent intent = new Intent(Activity11.this, Activity12.class);
                 startActivity(intent);
             }
@@ -72,5 +79,21 @@ public class Activity11 extends AppCompatActivity {
             }
                 break;
         }
+    }
+    public void performAuth()
+    {
+        FirebaseDatabase firebaseDatabase  = FirebaseDatabase.getInstance();
+        DatabaseReference databaseReference = firebaseDatabase.getReference();
+        databaseReference.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                Object value = dataSnapshot.getValue();
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+            }
+        });
+        databaseReference.child("UserAnswer").child("user").child("4").setValue(outputText.getText().toString());
     }
 }

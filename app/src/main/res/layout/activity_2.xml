@@ -1,129 +1,123 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MainActivity">
-    <LinearLayout
-        android:orientation="vertical"
-        android:background="@drawable/bg"
-        android:weightSum="10"
+    android:background="@drawable/background_image_one_signup"
+    tools:context=".RegisterActivity">
+
+    <View
+        android:id="@+id/view"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        >
+        android:background="#00000000" />
 
-        <RelativeLayout
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:fillViewport="true"
+        android:textAlignment="center"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/view">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
-            android:layout_height="0dp"
-            android:layout_weight="2">
+            android:layout_height="match_parent">
+
 
             <TextView
-                android:id="@+id/textGrid"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_alignParentTop="true"
-                android:layout_alignParentEnd="true"
-                android:layout_marginTop="40dp"
-                android:layout_marginEnd="80dp"
-                android:text="9 TO 5 ALLY"
-
+                android:id="@+id/nav_user_email"
+                android:layout_width="217dp"
+                android:layout_height="87dp"
+                android:layout_marginTop="160dp"
+                android:fontFamily="@font/aldrich"
+                android:text="9 - 5 Ally"
                 android:textAlignment="center"
-                android:textColor="@android:color/white"
+                android:textColor="@color/white"
+                android:textSize="44sp"
+                android:textStyle="bold"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
 
-                android:textSize="34sp"
-                android:textStyle="bold" />
+            <Button
+                android:id="@+id/btncheckin"
+                android:layout_width="202dp"
+                android:layout_height="51dp"
+                android:layout_marginTop="20dp"
+                android:background="@drawable/input_bg"
+                android:backgroundTint="@color/purple_700"
+                android:text="CHECK IN"
+                android:textColor="@color/white"
+                app:layout_constraintEnd_toEndOf="@+id/imageView"
+                app:layout_constraintStart_toStartOf="@+id/imageView"
+                app:layout_constraintTop_toBottomOf="@+id/imageView" />
+
+            <Button
+                android:id="@+id/btncomplain"
+                android:layout_width="205dp"
+                android:layout_height="51dp"
+                android:layout_marginTop="348dp"
+                android:background="@drawable/input_bg"
+                android:backgroundTint="@color/purple_700"
+                android:text="COMPLAIN"
+                android:textColor="@color/white"
+                app:layout_constraintEnd_toEndOf="@+id/btncheckin"
+                app:layout_constraintHorizontal_bias="1.0"
+                app:layout_constraintStart_toStartOf="@+id/nav_user_email"
+                app:layout_constraintTop_toBottomOf="@+id/nav_user_email" />
+
+            <Button
+                android:id="@+id/btnlogout"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:background="@drawable/input_bg"
+                android:backgroundTint="@color/black"
+                android:text="LOG OUT"
+                android:textColor="@color/white"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="@+id/imageView5"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toStartOf="@+id/imageView5"
+                app:layout_constraintTop_toBottomOf="@+id/btncomplain"
+                app:layout_constraintVertical_bias="0.81" />
+
+            <ImageView
+                android:id="@+id/imageView5"
+                android:layout_width="386dp"
+                android:layout_height="141dp"
+                android:layout_marginBottom="12dp"
+                app:layout_constraintBottom_toTopOf="@+id/nav_user_email"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.36"
+                app:layout_constraintStart_toStartOf="parent"
+                app:srcCompat="@drawable/off" />
 
             <ImageView
                 android:id="@+id/imageView"
-                android:layout_width="327dp"
-                android:layout_height="177dp"
-                android:layout_alignParentEnd="true"
-                android:layout_alignParentBottom="true"
-                android:layout_centerInParent="true"
-                android:layout_marginEnd="15dp"
-                android:layout_marginBottom="6dp"
-                android:background="@drawable/off" />
-        </RelativeLayout>
+                android:layout_width="234dp"
+                android:layout_height="135dp"
+                android:layout_marginTop="96dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.497"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/imageView5"
+                app:srcCompat="@drawable/wbg" />
 
-        <GridLayout
-            android:id="@+id/mainGrid"
-            android:layout_width="match_parent"
-            android:layout_height="0dp"
-            android:layout_weight="4"
-            android:alignmentMode="alignMargins"
-            android:outlineAmbientShadowColor="@color/black"
-            android:outlineSpotShadowColor="@color/black"
-            android:columnCount="1"
-            android:columnOrderPreserved="false"
-            android:padding="14dp"
-            android:rowCount="1">
+            <ImageView
+                android:id="@+id/imageView2"
+                android:layout_width="190dp"
+                android:layout_height="129dp"
+                android:layout_marginTop="12dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.497"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/btncheckin"
+                app:srcCompat="@drawable/comp1" />
 
-            <androidx.cardview.widget.CardView
-                android:layout_width="0dp"
-                android:layout_height="0dp"
-                android:layout_rowWeight="1"
-                android:layout_columnWeight="1"
-                android:layout_marginLeft="16dp"
-                android:layout_marginRight="16dp"
-                android:layout_marginBottom="16dp"
-                app:cardBackgroundColor="@color/white"
+        </androidx.constraintlayout.widget.ConstraintLayout>
 
-                app:cardCornerRadius="8dp"
-                app:cardElevation="8dp">
+    </ScrollView>
 
-                <LinearLayout
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="center_horizontal|center_vertical"
-                    android:layout_margin="16dp"
-                    android:background="@drawable/jj"
-                    android:orientation="vertical">
-
-                    <ImageView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_gravity="center_horizontal"
-                        android:src="@drawable/wbg" />
-
-                    <TextView
-
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:textAlignment="center"
-                        android:textColor="@android:color/white"
-
-                        android:textSize="18sp"
-                        android:textStyle="bold" />
-
-                    <Button
-
-                        android:id="@+id/button"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_centerHorizontal="true"
-                        android:layout_gravity="center"
-                        android:layout_margin="20dp"
-                        android:backgroundTint="@color/black"
-
-                        android:gravity="center"
-                        android:text="CHECK IN"
-                        android:textStyle="bold" />
-
-                </LinearLayout>
-
-            </androidx.cardview.widget.CardView>
-
-
-
-
-        </GridLayout>
-
-    </LinearLayout>
-
-</ScrollView>
-
-
-
-
-
+</androidx.constraintlayout.widget.ConstraintLayout>

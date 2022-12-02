@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "946056692961",
+    "project_id": "to-5-ally",
+    "storage_bucket": "to-5-ally.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:946056692961:android:6d17f1db539fa4db4123a0",
+        "android_client_info": {
+          "package_name": "com.example.tensorflow"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "946056692961-0l32vlv1kq9a6u2ol8irupaifntrjd35.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCPD7sHMyuTasnMMevSJBgR9UKmfAgy1Go"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "946056692961-0l32vlv1kq9a6u2ol8irupaifntrjd35.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
